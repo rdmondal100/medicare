@@ -2,21 +2,22 @@
   "expo": {
     "name": "medicare",
     "slug": "medicare",
+    "projectId": "31883228-c8de-40d5-9e72-937bc88b6818",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "medicare",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "ios": {
-      "supportsTablet": true
-    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "googleServicesFile": "./android/app/google-services.json",
+        "useNextNotificationsApi": true
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.medicare"
     },
     "web": {
       "bundler": "metro",
@@ -24,19 +25,39 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
-    ],
+  "expo-router",
+  [
+    "expo-splash-screen",
+    {
+      "image": "./assets/images/splash-icon.png",
+      "imageWidth": 200,
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    }
+  ],
+  [
+    "expo-notifications",
+    {
+      "icon": "./assets/notification_icon.png",
+      "color": "#ffffff",
+      "sounds": ["./assets/notification_sound.wav"]
+    }
+  ]
+]
+,
+    "ios": {
+      "infoPlist": {
+        "UIBackgroundModes": ["fetch"]
+      }
+    },
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "31883228-c8de-40d5-9e72-937bc88b6818"
+      }
     }
   }
 }
